@@ -1,8 +1,9 @@
-﻿using System;
+﻿using StateManagement.Domain.BaseEntities;
+using System;
 
 namespace StateManagement.Domain.Model.StateManagement.Events
 {
-    public class TaskAssignToOrderEvent
+    public class TaskAssignToOrderEvent : EventBase
     {
         public Guid TaskId { get; set; }
 

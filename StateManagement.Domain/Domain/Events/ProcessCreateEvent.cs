@@ -1,9 +1,10 @@
-﻿using System;
+﻿using StateManagement.Domain.BaseEntities;
+using System;
 using System.Collections.Generic;
 
 namespace StateManagement.Domain.Model.StateManagement.Events
 {
-    public class ProcessCreateEvent
+    public class ProcessCreateEvent : EventBase
     {
         public Guid FlowId { get; set; }
 

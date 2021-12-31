@@ -1,8 +1,9 @@
-﻿using System;
+﻿using StateManagement.Domain.BaseEntities;
+using System;
 
 namespace StateManagement.Domain.Model.StateManagement.Events
 {
-    public class TaskBackwardEvent
+    public class TaskBackwardEvent : EventBase
     {
         public Guid TaskId { get; set; }
 

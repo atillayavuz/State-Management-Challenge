@@ -22,7 +22,13 @@ namespace StateManagement.WebApi.Controllers
         [HttpGet("GetProcessLastState")]
         public async Task<IActionResult> GetProcessLastState([FromQuery] Guid id)
         {
-            return Ok(await _mediator.Send(new GetProcessLastState(id))); 
+            return Ok(await _mediator.Send(new GetProcessLastState(id)));
+        }
+
+        [HttpGet("GetProcessStateByDate")]
+        public async Task<IActionResult> GetProcessStateByDate([FromQuery] Guid id, DateTime eventCreatedAt)
+        {
+            return Ok(await _mediator.Send(new GetProcessLastState(id, eventCreatedAt)));
         }
 
         [HttpPost("StartProcess")]
@@ -48,6 +54,5 @@ namespace StateManagement.WebApi.Controllers
 
             return Ok();
         }
-
     }
 }
