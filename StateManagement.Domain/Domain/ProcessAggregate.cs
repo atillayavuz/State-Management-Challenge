@@ -22,6 +22,7 @@ namespace StateManagement.Domain
         public Guid FlowId { get; set; }
 
         public List<FlowStateModel> FlowStates { get; set; }
+
         public ProcessAggregate() { }
 
         public void StartProcess(Guid flowId, Guid taskId, List<FlowStateModel> flowStates)

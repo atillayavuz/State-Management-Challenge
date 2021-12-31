@@ -11,9 +11,12 @@ namespace StateManagement.Business.State.Queries
     {
         public Guid AggregateId { get; set; }
 
-        public GetProcessLastState(Guid aggregateId)
+        public DateTime? EventCreatedAt { get; set; }
+
+        public GetProcessLastState(Guid aggregateId, DateTime? eventCreatedAt = null)
         {
             AggregateId = aggregateId;
+            EventCreatedAt = eventCreatedAt;
         }
     }
 
@@ -28,7 +31,7 @@ namespace StateManagement.Business.State.Queries
 
         public async Task<ProcessAggregate> Handle(GetProcessLastState command, CancellationToken cancellationToken)
         {
-            return await _eventStoreRepository.LoadAsync<ProcessAggregate>(command.AggregateId);
+            return await _eventStoreRepository.LoadAsync<ProcessAggregate>(command.AggregateId, command.EventCreatedAt);
         }
     }
 }
